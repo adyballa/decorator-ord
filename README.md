@@ -1,92 +1,124 @@
-Decorator for portation of haskell typeclass EQ
-===============================================
+Decorator for portation of haskell typeclass ORD
+================================================
 
-The Eq Interface defines equality and inequality in [typescript](https://www.typescriptlang.org/).
-The decorator implements the EQ-Interface.
+The Ord Interface defines ordering in [typescript](https://www.typescriptlang.org/).
+The decorator implements the Ordering-Interface.
 On the other hand it is a library for funtions.
 Mainly Lists of this interface are used.
 
 There is an es5-translation in the dist-directory.
 [tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html) was used for transpiling.
 
+As an addition there is a record-library to calculate some values by lists of IOrds.
+But it's experimental.
+
 ## Installation
 
-  npm install decorator-eq --save
+  npm install decorator-ord --save
 
 ## Usage
 ### Decorator
 ```javascript
-  const carConfig = new EqConfig();
+  type TColor = "yellow" | "red";
+  const carConfig = new OrdConfig();
   
-  @Eq.implement({
+  @Ord.implement({
       config: carConfig
   })
   class Car implements IEq {
-    @Eq.field({})
-    private interior:TInterior;
+    @Ord.field({
+        ordinality: 2,
+        dir:'DESC'
+    })
+    private age:number;
  
-    @Eq.field({fuzzy:true})
-    private name:string;
+    @Ord.field({
+        ordinality: 1,
+        map: ['yellow','red']
+    })
+    private color:TColor;
     
-    constructor(interior:TInterior, name:string){
-        this.interior=interior;
-        this.name=name;
+    constructor(age:number, color:TColor){
+        this.age=age;
+        this.color=color;
     }
     
     //this is neccessary to ensure the interface
+    greater:(a:IOrd)=>boolean;
+    less:(a:IOrd)=>boolean;
     eq:(a:IEq)=>boolean;
     neq:(a:IEq)=>boolean;
- }
+  }
 ```
 Notice the Configuration-Object.
-Objects of car can now be seen as equal, if the two properties interior
-and name are the same. Be aware that the properties can be any type 
-that support "===" or has IEq implemented.
+Objects of car can now be ordered by color and than by age. 
+Be aware that the properties can be any type 
+that support "<",">", are mapped or have IEq implemented.
 
 ### Using the EQ-Library
-#### eq(cs:IEq[], ref:IEq, config:IEqConfig):IEq[]
+#### sort(cs:IOrd[], config:IOrdConfig):IOrd[]
 ```javascript
-  eq(listOfCars, new Car('plastic','cheapo'), config:IEqConfig):IEq[]
-  eq(listOfCars, new Car(null,'bmw'), config:IEqConfig):IEq[] // reveals all bmws
+  sort(listOfCars, carConfig) //sorts listOfCars by carConfig
 ```
  
-#### fuzzyEq(cs:IEq[], ref:IEq, config:IEqConfig):IEq[]
+#### greater(cs:IOrd[], ref:IOrd, config:IOrdConfig):IOrd[]
 ```javascript
-  fuzzyEq(listOfCars, new Car(null,'di'), config:IEqConfig):IEq[] //reveals Audi and Cadillac 
+  greater(listOfCars, new Car(null, 10), carConfig) //reveals all cars older than 10 years 
+  greater(listOfCars, new Car('red', 10), carConfig) //reveals all red cars older than 10 years 
 ```
  
-#### neq(cs:IEq[], ref:IEq, config:IEqConfig):IEq[]
+#### less(cs:IOrd[], ref:IOrd, config:IOrdConfig):IOrd[]
 ```javascript
-  neq(listOfCars, new Car('leather',null), config:IEqConfig):IEq[] //reveals all none leather cars 
+  less(listOfCars, new Car('red',null), carConfig) //reveals all yellow cars 
+  less(listOfCars, new Car('red',5), carConfig) //reveals all yellow cars younger than 5 
 ```
  
 ### Using EqConfig
-#### clone():IEqConfig 
+#### clone():OrdConfig 
 ```javascript
-  let copyOfConfig = config.clone(); 
+  let copyOfConfig = carConfig.clone(); 
 ```
 
-#### fields:Array<IField>
+#### ordFields:Array<IOrdField>
 ```javascript
-  let newFields:Array<IField> = [];
-  copyOfFields.fields.foreach((val, key) => if(key%2) newFields.push(val));
-  copyOfFields.fields = newFields;
+  let newFields:Array<IOrdField> = [];
+  copyOfFields.ordFields.foreach((val, key) => if(key%2) newFields.push(val));
+  copyOfFields.ordFields = newFields;
+```
+
+#### eqFields:Array<EqField>
+```javascript
+  let newFields:Array<EqField> = [];
+  copyOfFields.eqFields.foreach((val, key) => if(key%2) newFields.push(val));
+  copyOfFields.eqFields = newFields;
 ```
  
-### Using EqOr
+#### setOrdnialityOfField(name:string, fields:Array<IField>, newIndex = 0)
+```javascript
+  let configCopy = carConfig.clone();
+  configCopy.setOrdnialityOfField('age', configCopy.ordFields, 0);
+  sort(listOfCars, configCopy) //Sorts cars with priority age
+```
+
+### Using OrdAnd
 #### fuzzyEq(cs:IEq[], refs:IEq[], config:IEqConfig):IEq[]
 ```javascript
-  fuzzyEq(listOfCars, new Car('leather', null)) //all listOfCars
-  fuzzyEq(listOfCars, new Car('leather', 'di')) //reveals Audi and Cadillac or leather cars
+  @OrdAnd.implement({})
+  export class CarAnd extends Car {
+  }
+  
+  inRange(listOfCars, new CarAnd(10,'red'), new CarAnd(2,'yellow') 
+  //reveals all red and yellow cars between 2 and 10 years.
+  //all non-null properties must be fullfilled
 ```
 
-#### eq(cs:IEq[], refs:IEq[], config:IEqConfig):IEq[]
-```javascript
-  eq(listOfCars, new Car('leather', null)) //all leather cars
-  eq(listOfCars, new Car('leather', 'di')) //reveals leather cars
-  eq(listOfCars, new Car('leather', 'audi')) //reveals leather cars or audis
-```
+### _Recorder_
+It's an experimental technique to extract field-information of lists of Ords.
+The role model is a recorder. The use is still a bit unclear to me.
+There are
 
+*  CountRecord - _frequency of values_
+*  BorderRecord - _calculates min and max of values_
 
 ## Tests
 
@@ -100,4 +132,3 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 ## Release History
 
 * 0.1.0 Initial release
-* 0.1.2 transpiling from typescript to es5

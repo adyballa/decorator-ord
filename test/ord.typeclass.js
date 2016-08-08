@@ -120,15 +120,15 @@ describe('#OrdAnd', function() {
     ordAnd.OrdAnd.field({ordinality:2})(TestAndSubject,'age');
     ordAnd.OrdAnd.implement({config:testAndConfig})(TestAndSubject);
 
-    testAndSubject.push(new TestAndSubject("yellow",1));
-    testAndSubject.push(new TestAndSubject("yellow",9));
-    testAndSubject.push(new TestAndSubject("yellow",4));
-    testAndSubject.push(new TestAndSubject("red",6));
-    testAndSubject.push(new TestAndSubject("red",8));
-    testAndSubject.push(new TestAndSubject("red",9));
-    testAndSubject.push(new TestAndSubject("blue",2));
+    testAndSubject.push(new TestSubject("yellow",1));
+    testAndSubject.push(new TestSubject("yellow",9));
+    testAndSubject.push(new TestSubject("yellow",4));
+    testAndSubject.push(new TestSubject("red",6));
+    testAndSubject.push(new TestSubject("red",8));
+    testAndSubject.push(new TestSubject("red",9));
+    testAndSubject.push(new TestSubject("blue",2));
 
-    ordAnd.OrdAnd.inRange(testAndSubject, top, bottom, testConfig).should.deep.equal(
+    ord.Ord.inRange(testAndSubject, top, bottom, testConfig).should.deep.equal(
       testAndSubject.slice(2,5),
       "And-Search: All properties must fullfill the condition"
     );

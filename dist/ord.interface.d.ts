@@ -16,7 +16,6 @@ export declare function isFieldOrd(object: any): object is IOrdField;
 export interface IOrdConfig extends IEqConfig {
     ordFields: Array<IOrdField>;
     eqFields: Array<EqField>;
-    fields: Array<EqField>;
 }
 export interface IOrd extends IEq {
     [name: string]: any;
