@@ -1,6 +1,6 @@
 import { IEq, IField, IEqConfig } from "decorator-eq/eq.interface";
 import { EqField } from "decorator-eq";
-export interface IFieldProperty {
+export interface IOrdFieldProperty {
     ordinality: number;
     dir?: TDirection;
     map?: Array<string>;

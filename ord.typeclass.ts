@@ -1,6 +1,6 @@
 import {IEqProps,Eq} from "decorator-eq";
 import {Field} from "./ord.config";
-import {IOrd,IOrdConfig,IFieldProperty} from "./ord.interface";
+import {IOrd,IOrdConfig,IOrdFieldProperty} from "./ord.interface";
 
 export class Ord extends Eq {
 
@@ -30,7 +30,7 @@ export class Ord extends Eq {
         }
     }
 
-    static field(props:IFieldProperty) {
+    static field(props:IOrdFieldProperty) {
         return function (target:Object, propertyKey:string) {
             Ord._ord.fields[props.ordinality] = new Field(propertyKey, props);
         }

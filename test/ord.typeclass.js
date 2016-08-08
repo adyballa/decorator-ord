@@ -102,7 +102,7 @@ describe('#OrdConfig', function() {
     _t.push(testSubject[3]);
     _t.push(testSubject[2]);
     _t.push(testSubject[1]);
-    ord.OrdConfig.setOrdnialityOfField('age', cloneConfig.ordFields, 0);
+    ord.OrdConfig.setOrdinalityOfField('age', cloneConfig.ordFields, 0);
     ord.Ord.sort(testSubject, cloneConfig).should.deep.equal(_t, "Different order. Age has higher ordinality as color.");
   });
 });

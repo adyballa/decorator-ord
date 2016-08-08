@@ -103,7 +103,7 @@ var OrdConfig = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    OrdConfig.setOrdnialityOfField = function (name, fields, newIndex) {
+    OrdConfig.setOrdinalityOfField = function (name, fields, newIndex) {
         if (newIndex === void 0) { newIndex = 0; }
         var oldKey = fields.findIndex(function (field) {
             return (field.name === name);

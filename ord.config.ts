@@ -1,6 +1,6 @@
 import {EqField, EqConfig} from "decorator-eq";
 import {IField, TFieldValue} from "decorator-eq/eq.interface";
-import {IOrd, isOrd, TDirection, IFieldProperty, IOrdField, isFieldOrd, IOrdConfig} from "./ord.interface";
+import {IOrd, isOrd, TDirection, IOrdFieldProperty, IOrdField, isFieldOrd, IOrdConfig} from "./ord.interface";
 
 export class Field extends EqField implements IOrdField{
 
@@ -8,7 +8,7 @@ export class Field extends EqField implements IOrdField{
 
     public map:Array<string>;
 
-    constructor(public name:string, props:IFieldProperty) {
+    constructor(public name:string, props:IOrdFieldProperty) {
         super(name);
         this.map = ('map' in props) ? props.map : [];
         this.dir = ('dir' in props) ? props.dir : "ASC"
@@ -90,7 +90,7 @@ export class OrdConfig extends EqConfig implements IOrdConfig {
         return this._ordFields;
     }
 
-    public static setOrdnialityOfField(name:string, fields:Array<IField>, newIndex = 0) {
+    public static setOrdinalityOfField(name:string, fields:Array<IField>, newIndex = 0) {
         let oldKey = fields.findIndex((field:IField) => {
             return (field.name === name);
         });
