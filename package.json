@@ -22,12 +22,14 @@
     "less",
     "greater"
   ],
+  "dependencies": {
+    "decorator-eq": "*"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "grunt": "^1.0.1",
     "grunt-mocha-test": "^0.12.7",
-    "mocha": "^3.0.0",
-    "decorator-eq": "*"
+    "mocha": "^3.0.0"
   },
   "author": "= <=>",
   "license": "ISC"
