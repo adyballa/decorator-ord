@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var eq_typeclass_1 = require("decorator-eq/eq.typeclass");
+var decorator_eq_1 = require("decorator-eq");
 var ord_interface_1 = require("./ord.interface");
 var Field = (function (_super) {
     __extends(Field, _super);
@@ -58,7 +58,7 @@ var Field = (function (_super) {
         return new Field(this.name, { map: this.map, dir: this.dir, ordinality: -2 });
     };
     return Field;
-}(eq_typeclass_1.EqField));
+}(decorator_eq_1.EqField));
 exports.Field = Field;
 var OrdConfig = (function (_super) {
     __extends(OrdConfig, _super);
@@ -111,6 +111,6 @@ var OrdConfig = (function (_super) {
         fields.splice(newIndex, 0, fields.splice(oldKey, 1)[0]);
     };
     return OrdConfig;
-}(eq_typeclass_1.EqConfig));
+}(decorator_eq_1.EqConfig));
 exports.OrdConfig = OrdConfig;
 //# sourceMappingURL=ord.config.js.map

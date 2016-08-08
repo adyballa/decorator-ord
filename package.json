@@ -23,7 +23,7 @@
     "greater"
   ],
   "dependencies": {
-    "decorator-eq": "^0.1.3"
+    "decorator-eq": "https://github.com/adyballa/decorator-eq"
   },
   "devDependencies": {
     "chai": "^3.5.0",

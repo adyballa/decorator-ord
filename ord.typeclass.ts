@@ -1,9 +1,6 @@
-import {EqField, Eq, FuzzyEqField} from "decorator-eq/eq.typeclass";
-import {IEqProps} from "decorator-eq/eq.interface";
-import {Field,OrdConfig} from "./ord.config";
-import {IOrd,isOrd,IOrdConfig,IFieldProperty} from "./ord.interface";
-
-export {EqField, Eq, FuzzyEqField, IEqProps,Field,OrdConfig,IOrd,isOrd,IOrdConfig,IFieldProperty};
+import {IEqProps,Eq} from "decorator-eq";
+import {Field} from "./ord.config";
+import {IOrd,IOrdConfig,IFieldProperty} from "./ord.interface";
 
 export class Ord extends Eq {
 

@@ -2,7 +2,7 @@
 
 let should = require('chai').should(),
   expect = require('chai').expect,
-  ord = require('../dist/ord.typeclass'),
+  ord = require('../dist/index'),
   ordAnd = require('../dist/ord.and.typeclass'),
   countBorder = require('../dist/count.record'),
   borderBorder = require('../dist/border.record'),

@@ -1,7 +1,5 @@
 import {IEq, IField, IEqConfig, isEq} from "decorator-eq/eq.interface";
-import {EqField} from "decorator-eq/eq.typeclass";
-
-export {IEq, IField, IEqConfig, isEq};
+import {EqField} from "decorator-eq";
 
 export interface IFieldProperty {
     ordinality:number,

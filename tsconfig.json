@@ -21,6 +21,7 @@
     "ord.config.ts",
     "ord.interface.ts",
     "ord.typeclass.ts",
+    "index",
     "typings/index.d.ts"
   ],
   "exclude": [
