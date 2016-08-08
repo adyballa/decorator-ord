@@ -1,0 +1,34 @@
+{
+  "name": "decorator-ord",
+  "version": "1.0.0",
+  "description": "Decorator for portation of haskell typeclass ord",
+  "main": "./dist/ord.typeclass.js",
+  "scripts": {
+    "test": "grunt mochaTest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://adyballa@github/adyballa/decorator-ord.git"
+  },
+  "keywords": [
+    "decorator",
+    "portation",
+    "haskell",
+    "typeclass",
+    "ord",
+    "ordered",
+    "datatypes",
+    "comparsion",
+    "less",
+    "greater"
+  ],
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^3.0.0",
+    "decorator-eq": "*"
+  },
+  "author": "= <=>",
+  "license": "ISC"
+}

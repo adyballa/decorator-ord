@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "dist",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+
+  },
+  "files": [
+    "abstract.record.ts",
+    "border.record.ts",
+    "count.record.ts",
+    "ord.and.typeclass.ts",
+    "ord.config.ts",
+    "ord.interface.ts",
+    "ord.typeclass.ts",
+    "typings/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
