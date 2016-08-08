@@ -1,4 +1,6 @@
 "use strict";
+var eq_interface_1 = require("decorator-eq/eq.interface");
+exports.isEq = eq_interface_1.isEq;
 function isFieldOrd(object) {
     return ('name' in object && 'map' in object);
 }

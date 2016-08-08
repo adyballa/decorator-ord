@@ -2,6 +2,8 @@ import {EqField, EqConfig} from "decorator-eq/eq.typeclass";
 import {IField, TFieldValue} from "decorator-eq/eq.interface";
 import {IOrd, isOrd, TDirection, IFieldProperty, IOrdField, isFieldOrd, IOrdConfig} from "./ord.interface";
 
+export {IField, TFieldValue};
+
 export class Field extends EqField implements IOrdField{
 
     public dir:TDirection;
