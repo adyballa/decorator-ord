@@ -9,5 +9,5 @@ __export(require("./ord.and.typeclass"));
 __export(require("./ord.config"));
 __export(require("./ord.interface"));
 __export(require("./ord.typeclass"));
-__export(require("decorator-eq"));
+__export(require("decorator-eq/index"));
 //# sourceMappingURL=index.js.map
