@@ -1,6 +1,6 @@
 {
   "name": "decorator-ord",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Decorator for portation of haskell typeclass ord",
   "main": "./dist/ord.typeclass.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "greater"
   ],
   "dependencies": {
-    "decorator-eq": "https://github.com/adyballa/decorator-eq"
+    "decorator-eq": "^0.1.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
