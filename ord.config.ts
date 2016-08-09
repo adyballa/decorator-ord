@@ -2,7 +2,7 @@ import {EqField, EqConfig} from "decorator-eq";
 import {IField, TFieldValue} from "decorator-eq/eq.interface";
 import {IOrd, isOrd, TDirection, IOrdFieldProperty, IOrdField, isFieldOrd, IOrdConfig} from "./ord.interface";
 
-export class Field extends EqField implements IOrdField{
+export class Field extends EqField implements IOrdField {
 
     public dir:TDirection;
 
@@ -52,8 +52,8 @@ export class Field extends EqField implements IOrdField{
         }
     }
 
-    public clone():Field{
-        return new Field(this.name, {map:this.map,dir:this.dir,ordinality:-2});
+    public clone():Field {
+        return new Field(this.name, {map: this.map, dir: this.dir, ordinality: -2});
     }
 }
 
