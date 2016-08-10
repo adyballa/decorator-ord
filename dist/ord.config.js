@@ -68,7 +68,11 @@ var OrdConfig = (function (_super) {
     }
     OrdConfig.prototype.clone = function () {
         var res = new OrdConfig();
-        res.fields = this.fields;
+        var f = [];
+        this._fields.forEach(function (field) {
+            f.push(field.clone());
+        });
+        res.fields = f;
         return res;
     };
     Object.defineProperty(OrdConfig.prototype, "fields", {
