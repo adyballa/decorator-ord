@@ -67,7 +67,7 @@ var OrdConfig = (function (_super) {
         this._ordFields = [];
     }
     OrdConfig.prototype.clone = function () {
-        var res = _super.prototype.clone.call(this);
+        var res = new OrdConfig();
         res.fields = this.fields;
         return res;
     };

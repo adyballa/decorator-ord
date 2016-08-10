@@ -62,7 +62,7 @@ export class OrdConfig extends EqConfig implements IOrdConfig {
     protected _ordFields:Array<IOrdField> = [];
 
     public clone():OrdConfig {
-        let res = <OrdConfig> super.clone();
+        const res = new OrdConfig();
         res.fields = this.fields;
         return res;
     }
