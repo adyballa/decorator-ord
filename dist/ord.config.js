@@ -81,10 +81,14 @@ var OrdConfig = (function (_super) {
         },
         set: function (fields) {
             var _this = this;
-            this._fields = fields;
-            this._fields.forEach(function (field) {
+            this._fields = [];
+            this._ordFields = [];
+            fields.forEach(function (field) {
                 if (ord_interface_1.isFieldOrd(field)) {
                     _this._ordFields.push(field);
+                }
+                else {
+                    _this._fields.push(field);
                 }
             });
         },
