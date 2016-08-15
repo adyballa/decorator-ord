@@ -72,8 +72,6 @@ export class OrdConfig extends EqConfig implements IOrdConfig {
     }
 
     public set fields(fields:Array<IField>) {
-        this._fields = [];
-        this._ordFields = [];
         fields.forEach((field:IField) => {
             if (isFieldOrd(field)) {
                 this._ordFields.push(<IOrdField> field);

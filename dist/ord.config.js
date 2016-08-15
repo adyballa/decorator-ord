@@ -81,8 +81,6 @@ var OrdConfig = (function (_super) {
         },
         set: function (fields) {
             var _this = this;
-            this._fields = [];
-            this._ordFields = [];
             fields.forEach(function (field) {
                 if (ord_interface_1.isFieldOrd(field)) {
                     _this._ordFields.push(field);
