@@ -134,3 +134,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * 0.1.0 Initial release
 * 0.1.1 decorator-eq as dependency
 * 0.1.2 better transpiling in dist/index.js used
+* 0.1.3 split config fields
