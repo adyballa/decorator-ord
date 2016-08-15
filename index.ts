@@ -6,5 +6,3 @@ export * from "./ord.config";
 export * from "./ord.interface";
 export * from "./ord.typeclass";
 export * from "decorator-eq/index";
-
-
